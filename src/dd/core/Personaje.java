@@ -43,7 +43,7 @@ public abstract class Personaje {
 
 
     public void ataca(Personaje enemigo) {
-        EstrategiaAtaque.ataca(enemigo);
+        this.EstrategiaAtaque.lanzaAtaque(enemigo);
     }
 
     
