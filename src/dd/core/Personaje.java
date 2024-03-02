@@ -9,11 +9,11 @@ public abstract class Personaje {
     private EstrategiaAtaque EstrategiaAtaque;
 
     // Constructor
-    public Personaje(String nombre, int ataque, int salud) {
+    public Personaje(String nombre, int ataque, int salud, EstrategiaAtaque estrategiaAtaque) {
         this.nombre = nombre;
         this.ataque = ataque;
         this.salud = salud;
-        this.EstrategiaAtaque = EstrategiaAtaque;
+        this.EstrategiaAtaque = estrategiaAtaque;
     }
 
     // Getters and Setters
@@ -42,8 +42,9 @@ public abstract class Personaje {
     }
 
 
-    public void ataca(Personaje enemigo) {
+    public int ataca(Personaje enemigo) {
         this.EstrategiaAtaque.lanzaAtaque(enemigo);
+        return 1;
     }
 
     

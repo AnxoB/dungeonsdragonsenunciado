@@ -7,15 +7,19 @@ public class Caballero extends Personaje {
     private EstrategiaAtaque estrategiaAtaque;
 
     public Caballero(EstrategiaAtaque estrategiaAtaque, String nombre) {
-        super("Caballero", 0, 1500);
+        super("Caballero", 0, 1500, estrategiaAtaque);
         this.estrategiaAtaque = estrategiaAtaque;
     }
 
     @Override
-    public void ataca(Personaje enemigo) {
+    public int ataca(Personaje enemigo) {
+        int ataques = 0;
         if (estrategiaAtaque != null) {
             estrategiaAtaque.lanzaAtaque(enemigo);
+            ataques++;
             estrategiaAtaque.lanzaAtaque(enemigo);
+            ataques++;
         }
+        return ataques;
     }
 }

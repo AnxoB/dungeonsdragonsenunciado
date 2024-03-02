@@ -9,17 +9,17 @@ public class AtaqueArco implements EstrategiaAtaque {
     private Random random = new Random();
 
     @Override
-    public String lanzaAtaque(Personaje enemigo) {
+    public int lanzaAtaque(Personaje enemigo) {
         int acierta = random.nextInt(2);
         double factor = random.nextDouble();
         int ataque = (int) (acierta * factor * ATAQUE);
 
         if (acierta == 0) {
-            return "Ataque con arco falla";
+            return 0;
         } else {
             int salud = enemigo.getSalud();
             enemigo.setSalud(salud - ataque);
-            return "Ataque con arco: " + ataque;
+            return ataque;
         }
     }
 }
