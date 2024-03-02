@@ -1,7 +1,5 @@
 package dd.core;
 
-import dd.core.EstrategiaAtaque;
-import dd.core.Personaje;
 import java.util.Random;
 
 public class AtaqueArco implements EstrategiaAtaque {

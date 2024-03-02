@@ -1,6 +1,5 @@
 package dd.core;
 
-import dd.core.EstrategiaAtaque;
 
 public abstract class Personaje {
     private String nombre;

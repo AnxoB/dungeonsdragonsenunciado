@@ -1,8 +1,5 @@
 package dd.core;
 
-import dd.core.EstrategiaAtaque;
-import dd.core.Personaje;
-
 public class Troll extends Personaje {
     private EstrategiaAtaque estrategiaAtaque;
 
