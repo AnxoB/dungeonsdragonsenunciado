@@ -5,14 +5,14 @@ public abstract class Personaje {
     private String nombre;
     private int ataque;
     private int salud;
-    private EstrategiaAtaque EstrategiaAtaque;
+    private EstrategiaAtaque estrategiaAtaque;
 
     // Constructor
     public Personaje(String nombre, int ataque, int salud, EstrategiaAtaque estrategiaAtaque) {
         this.nombre = nombre;
         this.ataque = ataque;
         this.salud = salud;
-        this.EstrategiaAtaque = estrategiaAtaque;
+        this.estrategiaAtaque = estrategiaAtaque;
     }
 
     // Getters and Setters
@@ -42,11 +42,10 @@ public abstract class Personaje {
 
 
     public int ataca(Personaje enemigo) {
-        this.EstrategiaAtaque.lanzaAtaque(enemigo);
-        return 1;
+        int valorAtaque = this.estrategiaAtaque.lanzaAtaque(enemigo);
+        return valorAtaque;
     }
 
-    
     @Override
     public String toString() {
         return "[" + nombre + ": " + salud + "]";

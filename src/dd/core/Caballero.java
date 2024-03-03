@@ -11,13 +11,15 @@ public class Caballero extends Personaje {
 
     @Override
     public int ataca(Personaje enemigo) {
-        int ataques = 0;
+        int valorAtaque = 0;
         if (estrategiaAtaque != null) {
-            estrategiaAtaque.lanzaAtaque(enemigo);
-            ataques++;
-            estrategiaAtaque.lanzaAtaque(enemigo);
-            ataques++;
+            valorAtaque = estrategiaAtaque.lanzaAtaque(enemigo);
+            valorAtaque = estrategiaAtaque.lanzaAtaque(enemigo);
         }
-        return ataques;
+        if (valorAtaque == 0) {
+            return -1;
+        } else {
+            return valorAtaque;
+        }
     }
 }

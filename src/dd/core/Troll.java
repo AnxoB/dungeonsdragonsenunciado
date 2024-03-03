@@ -10,9 +10,14 @@ public class Troll extends Personaje {
 
     @Override
     public int ataca(Personaje enemigo) {
+        int valorAtaque = 0;
         if (estrategiaAtaque != null) {
-            estrategiaAtaque.lanzaAtaque(enemigo);
+            valorAtaque = estrategiaAtaque.lanzaAtaque(enemigo);
         }
-        return 1;
+        if (valorAtaque == 0) {
+            return -1;
+        } else {
+            return valorAtaque;
+        }
     }
 }

@@ -8,9 +8,10 @@ public class AtaqueEspada implements EstrategiaAtaque {
 
     @Override
     public int lanzaAtaque(Personaje enemigo) {
+        // acierta * factor * ATAQUE
         int acierta = random.nextInt(2);
         double factor = random.nextDouble();
-        int ataque = (int) (acierta * factor * ATAQUE);
+        int ataque = (int) (acierta * ATAQUE * factor);
 
         if (acierta == 0) {
             return 0;
