@@ -5,7 +5,7 @@ public class Rey extends Personaje {
     private EstrategiaAtaque estrategiaAtaque;
 
     public Rey(EstrategiaAtaque estrategiaAtaque, String nombre) {
-        super("Rey", 0, 2000, estrategiaAtaque);
+        super(nombre, 0, 2000, estrategiaAtaque);
         this.estrategiaAtaque = estrategiaAtaque;
     }
 

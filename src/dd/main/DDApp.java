@@ -5,6 +5,7 @@ import java.util.*;
 
 public class DDApp {
     public static void main(String[] args) {
+        System.out.println("Arturo, Lancelot y Percival se encuentran unos Trolls. ¡A luchar!");
         List<Personaje> ejercitoAliados = new ArrayList<>();
         List<Personaje> ejercitoTrolls = new ArrayList<>();
         Batalla batalla = new Batalla(ejercitoAliados, ejercitoTrolls);

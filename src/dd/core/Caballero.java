@@ -5,7 +5,7 @@ public class Caballero extends Personaje {
     private EstrategiaAtaque estrategiaAtaque;
 
     public Caballero(EstrategiaAtaque estrategiaAtaque, String nombre) {
-        super("Caballero", 0, 1500, estrategiaAtaque);
+        super(nombre, 0, 1500, estrategiaAtaque);
         this.estrategiaAtaque = estrategiaAtaque;
     }
 

@@ -4,7 +4,7 @@ public class Troll extends Personaje {
     private EstrategiaAtaque estrategiaAtaque;
 
     public Troll(EstrategiaAtaque estrategiaAtaque, String nombre) {
-        super("Troll", 0, 1000, estrategiaAtaque);
+        super(nombre, 0, 1000, estrategiaAtaque);
         this.estrategiaAtaque = estrategiaAtaque;
     }
 

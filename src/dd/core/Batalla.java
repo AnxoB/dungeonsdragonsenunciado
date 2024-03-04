@@ -39,8 +39,10 @@ public class Batalla {
     public List<String> luchar() {
         
         List<String> registroDeAtaques = new ArrayList<>();
+        int turno = 1;
 
         while (!ejercitoAliados.isEmpty() && !ejercitoTrolls.isEmpty()) {
+            registroDeAtaques.add("Turno " + turno + ":");
             // Turno de los aliados
             for (Personaje aliado : new ArrayList<>(ejercitoAliados)) {
                 if (!ejercitoTrolls.isEmpty()) {
@@ -52,7 +54,7 @@ public class Batalla {
                     } else {
                         registro += " - Daño: " + ataques;
                     }
-                    System.out.println(registro); // Imprime el registro del ataque
+                    //System.out.println(registro); // Imprime el registro del ataque
                     registroDeAtaques.add(registro);
                     if (trollAleatorio.getSalud() <= 0) {
                         ejercitoTrolls.remove(trollAleatorio);
@@ -71,13 +73,14 @@ public class Batalla {
                     } else {
                         registro += " - Daño: " + ataques;
                     }
-                    System.out.println(registro); // Imprime el registro del ataque
+                    //System.out.println(registro); // Imprime el registro del ataque
                     registroDeAtaques.add(registro);
                     if (aliadoAleatorio.getSalud() <= 0) {
                         ejercitoAliados.remove(aliadoAleatorio);
                     }
                 }
             }
+            turno++;
         }
         return registroDeAtaques;    
     }
