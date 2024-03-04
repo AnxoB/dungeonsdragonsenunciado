@@ -45,10 +45,4 @@ public abstract class Personaje {
         int valorAtaque = this.estrategiaAtaque.lanzaAtaque(enemigo);
         return valorAtaque;
     }
-
-    @Override
-    public String toString() {
-        return "[" + nombre + ": " + salud + "]";
-    }
-
 }
