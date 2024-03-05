@@ -13,11 +13,10 @@ public class AtaqueEspada implements EstrategiaAtaque {
         double factor = random.nextDouble();
         int ataque = (int) (acierta * factor * ATAQUE);
 
+        // Mirar si acierta o no
         if (acierta == 0) {
             return 0;
         } else {
-            int salud = enemigo.getSalud();
-            enemigo.setSalud(salud - ataque);
             return ataque;
         }
     }

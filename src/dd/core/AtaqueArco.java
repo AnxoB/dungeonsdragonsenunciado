@@ -8,15 +8,15 @@ public class AtaqueArco implements EstrategiaAtaque {
 
     @Override
     public int lanzaAtaque(Personaje enemigo) {
+        // acierta * factor * ATAQUE
         int acierta = random.nextInt(2);
         double factor = random.nextDouble();
         int ataque = (int) (acierta * factor * ATAQUE);
 
+        // Mirar si acierta o no
         if (acierta == 0) {
             return 0;
         } else {
-            int salud = enemigo.getSalud();
-            enemigo.setSalud(salud - ataque);
             return ataque;
         }
     }

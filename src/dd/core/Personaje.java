@@ -9,7 +9,7 @@ public abstract class Personaje {
     private int salud;
     private EstrategiaAtaque estrategiaAtaque;
 
-    // Constructor
+    // Constructor de la clase Personaje
     public Personaje(String nombre, int ataque, int salud, EstrategiaAtaque estrategiaAtaque) {
         this.nombre = nombre;
         this.ataque = ataque;
@@ -17,7 +17,7 @@ public abstract class Personaje {
         this.estrategiaAtaque = estrategiaAtaque;
     }
 
-    // Getters and Setters
+    // Getters y Setters
     public String getNombre() {
         return nombre;
     }
@@ -45,14 +45,7 @@ public abstract class Personaje {
 
     public List<String> ataca(Personaje enemigo) {
         List<String> registros = new ArrayList<>();
-        int valorAtaque = this.estrategiaAtaque.lanzaAtaque(enemigo);
-        String registro = this.getNombre() + " [" + this.getSalud() + "] contra " + enemigo.getNombre() + " [" + enemigo.getSalud() + "]";
-        if (valorAtaque == 0) {
-            registro += " -> El ataque ha fallado";
-        } else {
-            registro += " -> Daño: " + valorAtaque;
-        }
-        registros.add(registro);
+        this.estrategiaAtaque.lanzaAtaque(enemigo);
         return registros;
     }
 }

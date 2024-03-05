@@ -6,10 +6,14 @@ import java.util.*;
 public class DDApp {
     public static void main(String[] args) {
         System.out.println("Arturo, Lancelot y Percival se encuentran unos Trolls. ¡A luchar!");
+
+        // Crear ejércitos
         List<Personaje> ejercitoAliados = new ArrayList<>();
         List<Personaje> ejercitoTrolls = new ArrayList<>();
+        // Crear la batalla
         Batalla batalla = new Batalla(ejercitoAliados, ejercitoTrolls);
 
+        // Iniciar la batalla y guardar el registro 
         List<String> registroDeAtaques = batalla.luchar();
 
         for (String mensaje : registroDeAtaques) {
@@ -21,6 +25,7 @@ public class DDApp {
             }
         }
         
+        // Mostrar el resultado de la batalla
         if (ejercitoAliados.isEmpty()) {
             System.out.println("Los trolls han ganado la batalla.");
         } else if (ejercitoTrolls.isEmpty()) {

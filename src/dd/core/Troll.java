@@ -11,13 +11,18 @@ public class Troll extends Personaje {
         this.estrategiaAtaque = estrategiaAtaque;
     }
 
+    // Sobrescribe el método ataca de la clase Personaje
     @Override
     public List<String> ataca(Personaje enemigo) {
         List<String> registros = new ArrayList<>();
+        if (enemigo.getSalud() <= 0) {
+            return registros; // Devuelve una lista vacía si el enemigo ya está muerto
+        }
+        // El troll ataca 1 vez
         if (estrategiaAtaque != null) {
             int valorAtaque = estrategiaAtaque.lanzaAtaque(enemigo);
             if (valorAtaque > 0) {
-                enemigo.setSalud(enemigo.getSalud() - valorAtaque); // Actualiza la salud del enemigo
+                enemigo.setSalud(enemigo.getSalud() - valorAtaque);
             }
             String registro = this.getNombre() + " [" + this.getSalud() + "] contra " + enemigo.getNombre() + " [" + enemigo.getSalud() + "]";
             if (valorAtaque == 0) {

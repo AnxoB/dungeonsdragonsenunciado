@@ -2,7 +2,8 @@
 ### Tras finalizarr el proyecto, responde de forma concisa (máximo 1 párrafo) y clara a las siguientes preguntas que te darán indicios de  tu grado de entendimiento del patrón Strategy
 
 - ¿Cuáles son las estrategias?
-- 
+La interfaz EstrategiaAtaque.
+
 - ¿Está el código de las diferentes ataques mezclado?¿El código del ataque con espada es independiente del código del ataque con arco?  .Relaciona esto con algún principio SOLID.
   No, el código no está mezclado, ya que cada ataque es independiente de otro, cada uno con su clase implementando la interfaz EstrategiaAtaque.
   Se relaciona con el principio SOLID ya que cada tipo de ataque en su clase tiene solo una responsabilidad, y solo necesita cambiar si ese ataque
@@ -15,13 +16,14 @@
   La clase Personaje o sus subclases como Rey, Caballero y Troll.
 
 - ¿En que se parece y  en que se diferencia el  contexto de tu proyecto al contexto del Patrón teórico del boletín?
-
+Ambos cumplen los principios SOLID.
 
 - ¿Quién es el Cliente?
   La clase Personaje.
 
 - ¿Como cambia el cliente de estrategia?
-- 
+A través de un método setter en el cliente que permite establecer una nueva estrategia.
+
 - ¿Para cambiar de estrategia, tiene que conocer el cliente detalles de implementación de la estrategia?
 No, el cliente solo necesita saber que las estrategias implementan una interfaz común. 
 
