@@ -1,5 +1,7 @@
 package dd.core;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Personaje {
     private String nombre;
@@ -41,8 +43,16 @@ public abstract class Personaje {
     }
 
 
-    public int ataca(Personaje enemigo) {
+    public List<String> ataca(Personaje enemigo) {
+        List<String> registros = new ArrayList<>();
         int valorAtaque = this.estrategiaAtaque.lanzaAtaque(enemigo);
-        return valorAtaque;
+        String registro = this.getNombre() + " [" + this.getSalud() + "] contra " + enemigo.getNombre() + " [" + enemigo.getSalud() + "]";
+        if (valorAtaque == 0) {
+            registro += " -> El ataque ha fallado";
+        } else {
+            registro += " -> Daño: " + valorAtaque;
+        }
+        registros.add(registro);
+        return registros;
     }
 }

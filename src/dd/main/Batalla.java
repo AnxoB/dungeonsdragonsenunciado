@@ -1,5 +1,6 @@
-package dd.core;
+package dd.main;
 
+import dd.core.*;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
@@ -47,17 +48,11 @@ public class Batalla {
             for (Personaje aliado : new ArrayList<>(ejercitoAliados)) {
                 if (!ejercitoTrolls.isEmpty()) {
                     Personaje trollAleatorio = ejercitoTrolls.get(rand.nextInt(ejercitoTrolls.size()));
-                    int ataques = aliado.ataca(trollAleatorio);
-                    String registro = aliado.getNombre() + " [" + aliado.getSalud() + "] contra " + trollAleatorio.getNombre() + " [" + trollAleatorio.getSalud() + "]";
-                    if (ataques == -1) {
-                        registro += " -> El ataque ha fallado";
-                    } else {
-                        registro += " -> Daño: " + ataques;
-                    }
-                    //System.out.println(registro); // Imprime el registro del ataque
-                    registroDeAtaques.add(registro);
+                    List<String> ataques = aliado.ataca(trollAleatorio);
+                    registroDeAtaques.addAll(ataques);
                     if (trollAleatorio.getSalud() <= 0) {
                         ejercitoTrolls.remove(trollAleatorio);
+                        registroDeAtaques.add(trollAleatorio.getNombre() + " ha muerto!");
                     }
                 }
             }
@@ -66,17 +61,11 @@ public class Batalla {
             for (Personaje troll : new ArrayList<>(ejercitoTrolls)) {
                 if (!ejercitoAliados.isEmpty()) {
                     Personaje aliadoAleatorio = ejercitoAliados.get(rand.nextInt(ejercitoAliados.size()));
-                    int ataques = troll.ataca(aliadoAleatorio);
-                    String registro = troll.getNombre() + " [" + troll.getSalud() + "] contra " + aliadoAleatorio.getNombre() + " [" + aliadoAleatorio.getSalud() + "]";
-                    if (ataques == -1) {
-                        registro += " -> El ataque ha fallado";
-                    } else {
-                        registro += " -> Daño: " + ataques;
-                    }
-                    //System.out.println(registro); // Imprime el registro del ataque
-                    registroDeAtaques.add(registro);
+                    List<String> ataques = troll.ataca(aliadoAleatorio);
+                    registroDeAtaques.addAll(ataques);
                     if (aliadoAleatorio.getSalud() <= 0) {
                         ejercitoAliados.remove(aliadoAleatorio);
+                        registroDeAtaques.add(aliadoAleatorio.getNombre() + " ha muerto!");
                     }
                 }
             }
@@ -86,4 +75,3 @@ public class Batalla {
     }
     
 }
-

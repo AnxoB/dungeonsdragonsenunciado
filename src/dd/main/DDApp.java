@@ -14,6 +14,11 @@ public class DDApp {
 
         for (String mensaje : registroDeAtaques) {
             System.out.println(mensaje);
+            try {
+                Thread.sleep(250); // Espera 250 milisegundos
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         
         if (ejercitoAliados.isEmpty()) {

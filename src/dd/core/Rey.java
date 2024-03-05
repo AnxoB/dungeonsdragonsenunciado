@@ -1,5 +1,7 @@
 package dd.core;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Rey extends Personaje {
     private EstrategiaAtaque estrategiaAtaque;
@@ -10,17 +12,23 @@ public class Rey extends Personaje {
     }
 
     @Override
-    public int ataca(Personaje enemigo) {
-        int valorAtaque = 0;
+    public List<String> ataca(Personaje enemigo) {
+        List<String> registros = new ArrayList<>();
         if (estrategiaAtaque != null) {
-            valorAtaque = estrategiaAtaque.lanzaAtaque(enemigo);
-            valorAtaque = estrategiaAtaque.lanzaAtaque(enemigo);
-            valorAtaque = estrategiaAtaque.lanzaAtaque(enemigo);
+            for (int i = 0; i < 3; i++) {
+                int valorAtaque = estrategiaAtaque.lanzaAtaque(enemigo);
+                if (valorAtaque > 0) {
+                    enemigo.setSalud(enemigo.getSalud() - valorAtaque); // Actualiza la salud del enemigo
+                }
+                String registro = this.getNombre() + " [" + this.getSalud() + "] contra " + enemigo.getNombre() + " [" + enemigo.getSalud() + "]";
+                if (valorAtaque == 0) {
+                    registro += " -> El ataque ha fallado";
+                } else {
+                    registro += " -> Daño: " + valorAtaque;
+                }
+                registros.add(registro);
+            }
         }
-        if (valorAtaque == 0) {
-            return -1;
-        } else {
-            return valorAtaque;
-        }
+        return registros;
     }
 }
