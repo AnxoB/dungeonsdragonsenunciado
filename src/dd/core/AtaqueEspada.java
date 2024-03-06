@@ -20,4 +20,8 @@ public class AtaqueEspada implements EstrategiaAtaque {
             return ataque;
         }
     }
+    @Override
+    public String getNombreAtaque() {
+        return "espada";
+    }
 }

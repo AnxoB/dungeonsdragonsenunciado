@@ -24,7 +24,7 @@ public class Troll extends Personaje {
             if (valorAtaque > 0) {
                 enemigo.setSalud(enemigo.getSalud() - valorAtaque);
             }
-            String registro = this.getNombre() + " [" + this.getSalud() + "] contra " + enemigo.getNombre() + " [" + enemigo.getSalud() + "]";
+            String registro = this.getNombre() + " [" + this.getSalud() + "] ataca con "+ estrategiaAtaque.getNombreAtaque()+" contra " + enemigo.getNombre() + " [" + enemigo.getSalud() + "]";
             if (valorAtaque == 0) {
                 registro += " -> El ataque ha fallado";
             } else {

@@ -20,4 +20,8 @@ public class AtaqueArco implements EstrategiaAtaque {
             return ataque;
         }
     }
+    @Override
+    public String getNombreAtaque() {
+        return "arco";
+    }
 }
